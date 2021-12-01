@@ -1,0 +1,37 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="adm">Administração</a>
+      <a mat-list-item routerLink="autoajuda">Autoajuda</a>
+      <a mat-list-item routerLink="biografias">Biografias</a>
+      <a mat-list-item routerLink="artefoto">Artes e Fotografias</a>
+      <a mat-list-item routerLink="litinter">Literatura Internacional</a>
+      <a mat-list-item routerLink="litbra">Literatura Brasileira</a>
+      <a mat-list-item routerLink="historia">História</a>
+      <a mat-list-item routerLink="psicologia">Psicologia</a>
+      <a mat-list-item routerLink="religiao">Religião</a>
+      <a mat-list-item routerLink="suspense">Suspense</a>
+      <a mat-list-item routerLink="terror">Terror</a>
+
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>livraria</span>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
